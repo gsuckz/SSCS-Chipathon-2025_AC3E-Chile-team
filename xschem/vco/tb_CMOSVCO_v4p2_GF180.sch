@@ -29,7 +29,7 @@ vvcont VCONT 0 dc 1.65
      alter vvcont $val
      tran 5n 50u
    end
-wrdata /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/vco/simulations/data_CMOSVCOlowG_v4p2_IHP.txt v(V_1) tran1.v(V_1) tran2.v(V_1) tran3.v(V_1) tran4.v(V_1) tran5.v(V_1) tran6.v(V_1) tran7.v(V_1) tran8.v(V_1) tran9.v(V_1) tran10.v(V_1) tran11.v(V_1) tran12.v(V_1) tran13.v(V_1) tran14.v(V_1) tran15.v(V_1) tran16.v(V_1) tran17.v(V_1) tran18.v(V_1) tran19.v(V_1)
+wrdata /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/vco/simulations/data_CMOSVCOlowG_v4p2_GF180.txt v(V_1) tran1.v(V_1) tran2.v(V_1) tran3.v(V_1) tran4.v(V_1) tran5.v(V_1) tran6.v(V_1) tran7.v(V_1) tran8.v(V_1) tran9.v(V_1) tran10.v(V_1) tran11.v(V_1) tran12.v(V_1) tran13.v(V_1) tran14.v(V_1) tran15.v(V_1) tran16.v(V_1) tran17.v(V_1) tran18.v(V_1) tran19.v(V_1)
 *wrdata /foss/designs/Chipathon2025_Esm22/data_CMOSVCOlowG_v4p2_IHP.txt v(V_1) tran1.v(V_1) tran2.v(V_1) tran3.v(V_1) tran4.v(V_1) tran5.v(V_1) tran6.v(V_1) tran7.v(V_1) tran8.v(V_1) tran9.v(V_1) tran10.v(V_1) tran11.v(V_1) tran12.v(V_1) tran13.v(V_1) tran14.v(V_1)
 plot tran1.v(V_1) (tran10.v(V_1)+4) (tran19.v(V_1)+8)
 *plot tran1.v(V_1) (tran7.v(V_1)+4) (tran14.v(V_1)+8)
@@ -40,7 +40,7 @@ C {devices/lab_pin.sym} 2980 -840 3 0 {name=p5 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} 2890 -930 1 0 {name=p6 sig_type=std_logic lab=VCONT}
 C {devices/lab_pin.sym} 3070 -950 1 0 {name=p7 sig_type=std_logic lab=V_1}
 C {devices/lab_pin.sym} 3070 -910 1 0 {name=p1 sig_type=std_logic lab=V_2}
-C {Esm22_CMOSVCOlowG_v4p2_IHP.sym} 2980 -930 0 0 {name=x1}
+C {Esm22_CMOSVCOlowG_v4p2_GF180.sym} 2980 -930 0 0 {name=x1}
 C {devices/code_shown.sym} 3240 -1210 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="

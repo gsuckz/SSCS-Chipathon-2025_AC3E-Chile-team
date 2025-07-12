@@ -9,9 +9,9 @@ matplotlib.use('TkAgg')
 from matplotlib import pyplot as plt
 
 
-df=pd.read_fwf('/foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/vco/simulations/data_CMOSVCOlowG_v4p2_IHP.txt')
-df.to_csv('/foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/vco/simulations/data_CMOSVCOlowG_v4p2_IHP.csv', index=False)
-data = pd.read_csv("/foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/vco/simulations/data_CMOSVCOlowG_v4p2_IHP.csv").values
+df=pd.read_fwf('/foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/vco/simulations/data_CMOSVCOlowG_v4p2_GF180.txt')
+df.to_csv('/foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/vco/simulations/data_CMOSVCOlowG_v4p2_GF180.csv', index=False)
+data = pd.read_csv("/foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/vco/simulations/data_CMOSVCOlowG_v4p2_GF180.csv").values
 num_rows, num_cols = data.shape
 print(num_rows)
 print(num_cols)
