@@ -4,9 +4,8 @@ K {}
 V {}
 S {}
 E {}
-T {used to run ngspice sweep in parallel} 1440 -1000 0 0 0.3 0.3 {layer=11}
-T {each printed value will be saved in csv file} 1800 -540 0 0 0.3 0.3 {layer=11}
-T {set num_threads to 1 for small circuits} 1710 -760 0 0 0.3 0.3 {layer=11}
+T {used to run ngspice sweep in parallel} 1220 -680 0 0 0.3 0.3 {layer=11}
+T {set num_threads to 1 for small circuits} 1490 -440 0 0 0.3 0.3 {layer=11}
 N 30 -350 30 -330 {
 lab=GND}
 N 120 -350 120 -330 {
@@ -45,7 +44,7 @@ N 610 -230 610 -200 {lab=en_n}
 N 610 -420 610 -380 {lab=en_p}
 N 820 -220 820 -160 {lab=GND}
 C {devices/title.sym} 245 -55 0 0 {name=l5 author="Jorge Marin (based on testbench by K. Herman/IHP)"}
-C {simulator_commands_shown.sym} 1435 -915 0 0 {name=SWEEP_SIM
+C {simulator_commands_shown.sym} 1215 -595 0 0 {name=SWEEP_SIM
 simulator=ngspice
 only_toplevel=false 
 value="
@@ -53,7 +52,7 @@ value="
 .param mn_w=24.0u
 .param mp_w=72.0u
 .param ven_p=0
-.param ven_n=0
+.param ven_n=3.3
 
 .param temp=27
 *.param Iload=500u
@@ -67,14 +66,7 @@ dc Vin 0 3.3 0.05
 
 let Ron=(V(V_in)-V(V_out1))/I(Vp2)
 meas dc Ronmax max Ron 
-echo results_sweep_begin
 print Ronmax
-echo results_sweep_end
-set color0=white
-set color1=black
-set color2=red
-set color3=blue
-set color4=green
 plot Ron title 'RON resistance' xlabel 'current' ylabel 'Ron'
 wrdata /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/tgate/out_Ron.txt Ron
 .endc
