@@ -34,7 +34,7 @@ C {iopin.sym} 650 -1430 0 0 {name=p7 lab=BN}
 C {iopin.sym} 650 -1400 0 0 {name=p8 lab=BP}
 C {symbols/nfet_03v3.sym} 550 -1330 2 1 {name=M1
 L=0.28u
-W=36u
+W=mn_w
 nf=6
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -48,7 +48,7 @@ spiceprefix=X
 }
 C {symbols/pfet_03v3.sym} 760 -1330 0 1 {name=M2
 L=0.28u
-W=90u
+W=mp_w
 nf=6
 m=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
