@@ -4,7 +4,7 @@ K {}
 V {}
 S {}
 E {}
-N 1030 -180 1170 -180 {
+N 480 -160 620 -160 {
 lab=VOUT}
 C {devices/code_shown.sym} -10 300 0 0 {name=CODE only_toplevel=false value="
 .option scale=1e-6
@@ -32,29 +32,20 @@ C {devices/lab_pin.sym} -240 -140 0 0 {name=p3 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} 110 -160 0 0 {name=p4 sig_type=std_logic lab=VIN}
 C {devices/lab_pin.sym} 290 -120 0 0 {name=p5 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} -160 -140 0 0 {name=p6 sig_type=std_logic lab=VCC}
-C {devices/lab_pin.sym} 1090 -180 1 0 {name=p8 sig_type=std_logic lab=VOUT}
-C {devices/capa.sym} 1170 -150 0 0 {name=C1
+C {devices/lab_pin.sym} 540 -160 1 0 {name=p8 sig_type=std_logic lab=VOUT}
+C {devices/capa.sym} 620 -130 0 0 {name=C1
 m=1
 value=10f
 footprint=1206
 device="ceramic capacitor"}
-C {devices/lab_pin.sym} 1170 -120 0 0 {name=p14 sig_type=std_logic lab=VSS}
+C {devices/lab_pin.sym} 620 -100 0 0 {name=p14 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} 270 -200 0 0 {name=p7 sig_type=std_logic lab=VCC}
-C {large_delay_vto1p1.sym} 230 -160 0 0 {name=x1}
-C {devices/code_shown.sym} -10 -20 0 0 {name=MODEL1 only_toplevel=true
+C {largedelay-inv_vto1p1.sym} 230 -160 0 0 {name=x1}
+C {devices/lab_pin.sym} 410 -160 2 0 {name=p13 sig_type=std_logic lab=VOUT}
+C {devices/code_shown.sym} -20 60 0 0 {name=Models only_toplevel=false
 format="tcleval( @value )"
 value="
-
-.param corner=0
-
-.if (corner==0)
-.lib $::SG13G2_MODELS/cornerMOSlv.lib mos_tt
-.lib $::SG13G2_MODELS/cornerMOSlv.lib mos_tt
-.lib $::SG13G2_MODELS/cornerRES.lib res_typ
-.lib $::SG13G2_MODELS/cornerCAP.lib cap_typ
-.endif
-
-*.include /opt/pdks/ihp-sg13g2/libs.ref/sg13g2_stdcell/spice/sg13g2_stdcell.spice
-.include /foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/spice/gf180mcu_fd_sc_mcu7t5v0.spice
+.include /foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu9t5v0/spice/gf180mcu_fd_sc_mcu9t5v0.spice
+.include $::180MCU_MODELS/design.ngspice
+.lib $::180MCU_MODELS/sm141064.ngspice typical
 "}
-C {devices/lab_pin.sym} 410 -160 2 0 {name=p13 sig_type=std_logic lab=VOUT}
