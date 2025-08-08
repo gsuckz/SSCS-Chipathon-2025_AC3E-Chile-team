@@ -7,8 +7,8 @@ E {}
 N 280 220 420 220 {
 lab=VOUT}
 C {devices/code_shown.sym} -900 110 0 0 {name=Simulation only_toplevel=false value="
-.param Cload = 2p
-.param VDD = 3.3
+.param Cload = 1f
+.param VDD = 5
 
 .control
 
@@ -37,11 +37,11 @@ value="
 .include $::180MCU_MODELS/design.ngspice
 .lib $::180MCU_MODELS/sm141064.ngspice typical
 "}
-C {devices/vsource.sym} -360 270 0 0 {name=VCC value=3.3}
+C {devices/vsource.sym} -360 270 0 0 {name=VCC value=5}
 C {devices/vsource.sym} -440 270 0 0 {name=VSS value=0}
 C {devices/gnd.sym} -440 300 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} -360 300 0 0 {name=l3 lab=GND}
-C {devices/vsource.sym} -440 170 0 0 {name=VIN value="PULSE(0 3.3 3u 1n 1n 12u 24u)"}
+C {devices/vsource.sym} -440 170 0 0 {name=VIN value="PULSE(0 5 3u 0.1n 0.1n 12u 24u)"}
 C {devices/lab_pin.sym} -440 140 0 0 {name=p16 sig_type=std_logic lab=VIN}
 C {devices/lab_pin.sym} -440 200 0 0 {name=p17 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} -440 240 0 0 {name=p18 sig_type=std_logic lab=VSS}

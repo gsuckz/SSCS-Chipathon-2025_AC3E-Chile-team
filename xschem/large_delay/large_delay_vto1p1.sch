@@ -14,5 +14,5 @@ C {devices/iopin.sym} 0 -150 2 0 {name=p4 lab=VIN}
 C {devices/iopin.sym} 0 -110 2 0 {name=p5 lab=VOUT}
 C {devices/iopin.sym} -130 -160 2 0 {name=p1 lab=VCC}
 C {devices/iopin.sym} -130 -120 2 0 {name=p2 lab=VSS}
-C {dlyc_1.sym} -40 -10 0 0 {name=x1[0:4] VGND=VSS VNB=VCC VPB=VSS VPWR=VCC prefix=gf180mcu_fd_sc_mcu9t5v0__ 
+C {dlyc_4.sym} -40 -10 0 0 {name=x1[0:4] VGND=VSS VNB=VCC VPB=VSS VPWR=VCC prefix=gf180mcu_fd_sc_mcu9t5v0__ 
 }
