@@ -1,0 +1,115 @@
+** sch_path: /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/pwr_stage/TB_DCDCBuck_GD_FR_2.sch
+**.subckt TB_DCDCBuck_GD_FR_2
+Vdd Vdd GND {VH}
+Vg2 Vg_M2 GND PULSE(0 {VH} {dt} 1n 1n {T*D-2*dt} {T} 0)
+Vg1 Vg_M1 GND PULSE(0 {VH} 0 1n 1n {T*D} {T} 0)
+L6 net2 net1 {L} m=1
+C1 net1 GND {C} m=1
+V_Io net1 Vo 0
+.save i(v_io)
+V_IL Vc net2 0
+.save i(v_il)
+R2 Vo GND {R} m=1
+XM3 Vc s2 GND GND nfet_05v0 L={l_M2} W={w_M2} nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m={mult_M2}
+XM1 Vc s1 Vdd Vdd pfet_05v0 L={l_M1} W={w_M1} nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m={mult_M1}
+X1 Vdd GND Vg_M2 s2 GD_schem
+X2 Vdd GND Vg_M1 s1 GD_schem
+**** begin user architecture code
+
+
+.param L = 550n
+.param R = 16.7
+.param C = 640n
+
+
+
+
+
+.param temp=27
+.param mult_M1 = 2000
+.param w_M1 =10u
+.param l_M1 = 0.5u
+
+
+.param mult_M2 = 625
+.param w_M2 =10u
+.param l_M2 =0.6u
+
+
+
+
+
+
+
+
+
+.param VH = 5
+.param D = 1-0.66
+.param T = 1u
+.param dt = 20n
+.param temp = 27
+
+
+
+
+
+
+.save all
+.ic v(vo) = 0
+.control
+set color0 = white
+compose RL_var values 3.3/0.05 3.3/0.1 3.3/0.25 3.3/0.5 3.3/0.7 3.3 3.3/3
+   foreach val $&RL_var
+     alterparam R=$val
+     reset
+     save i(V_Io) v(Vo) i(Vdd) v(Vdd)
+     tran 100p 30u 20u
+   end
+wrdata /foss/designs/data_Chipathon_2025/data_converter_700mA_GD_100p.txt tran1.i(V_Io) tran1.v(Vo) tran1.i(Vdd) tran1.v(Vdd) tran2.i(V_Io) tran2.v(Vo) tran2.i(Vdd) tran2.v(Vdd) tran3.i(V_Io) tran3.v(Vo) tran3.i(Vdd) tran3.v(Vdd) tran4.i(V_Io) tran4.v(Vo) tran4.i(Vdd) tran4.v(Vdd) tran5.i(V_Io) tran5.v(Vo) tran5.i(Vdd) tran5.v(Vdd) tran6.i(V_Io) tran6.v(Vo) tran6.i(Vdd) tran6.v(Vdd) tran7.i(V_Io) tran7.v(Vo) tran7.i(Vdd) tran7.v(Vdd)
+.endc
+.end
+
+
+
+.include /foss/pdks/gf180mcuD/libs.tech/ngspice/design.ngspice
+.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+
+
+
+
+*PMOS
+.param mult_gd_p = 72
+.param w_gd_p = 6.4u
+.param l_gd_p = 0.5u
+*NMOS
+.param mult_gd_n = 72
+.param w_gd_n = 2u
+.param l_gd_n = 0.6u
+
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  pwr_stage/GD_schem.sym # of pins=4
+** sym_path: /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/pwr_stage/GD_schem.sym
+** sch_path: /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/pwr_stage/GD_schem.sch
+.subckt GD_schem VP VN A Y
+*.ipin A
+*.iopin VP
+*.iopin VN
+*.opin Y
+XM11 Y net1 VN VN nfet_05v0 L={l_gd_n} W={w_gd_n} nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m={mult_gd_n}
+XM12 Y net1 VP VP pfet_05v0 L={l_gd_p} W={w_gd_p} nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m={mult_gd_p}
+XM13 net1 A VN VN nfet_05v0 L={l_gd_n} W={w_gd_n} nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m={mult_gd_n}/4
+XM14 net1 A VP VP pfet_05v0 L={l_gd_p} W={w_gd_p} nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m={mult_gd_p}/4
+.ends
+
+.GLOBAL GND
+.end

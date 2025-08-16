@@ -109,6 +109,12 @@ N -260 -130 -230 -130 {
 lab=VDD}
 N -230 -130 -30 -130 {
 lab=VDD}
+N -130 -130 -130 -120 {lab=VDD}
+N -160 -90 -125 -90 {lab=VDD}
+N -160 -130 -160 -90 {lab=VDD}
+N -130 -60 -130 -0 {lab=#net4}
+N -260 0 -130 0 {lab=#net4}
+N -90 -90 -90 280 {lab=VSS}
 C {devices/ipin.sym} 170 70 0 0 {name=p1 lab=VIN}
 C {devices/opin.sym} 310 70 0 0 {name=p5 lab=VOUT}
 C {devices/iopin.sym} 250 -140 3 0 {name=p2 lab=VDD}
@@ -158,7 +164,7 @@ spiceprefix=X
 }
 C {symbols/pfet_06v0.sym} -280 -90 0 0 {name=MP1
 L=7u
-W=2u
+W=0.5u
 nf=1
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.18u'"
@@ -224,5 +230,19 @@ ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
 nrd="'0.18u / W'" nrs="'0.18u / W'"
 sa=0 sb=0 sd=0
 model=nfet_06v0
+spiceprefix=X
+}
+C {symbols/pfet_06v0.sym} -110 -90 0 1 {name=MP5
+L=7u
+W=0.5u
+nf=1
+mult=1
+ad="'int((nf+1)/2) * W/nf * 0.18u'"
+pd="'2*int((nf+1)/2) * (W/nf + 0.18u)'"
+as="'int((nf+2)/2) * W/nf * 0.18u'"
+ps="'2*int((nf+2)/2) * (W/nf + 0.18u)'"
+nrd="'0.18u / W'" nrs="'0.18u / W'"
+sa=0 sb=0 sd=0
+model=pfet_06v0
 spiceprefix=X
 }

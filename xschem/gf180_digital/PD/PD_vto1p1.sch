@@ -45,13 +45,13 @@ lab=#net2}
 N -425 -220 -420 -220 {
 lab=VFE1}
 N -405 30 -400 30 {
-lab=VFE1}
+lab=VFE2}
 N -405 -20 -405 30 {
-lab=VFE1}
+lab=VFE2}
 N -405 -110 -405 -80 {
 lab=VSS}
 N -430 30 -405 30 {
-lab=VFE1}
+lab=VFE2}
 N -425 -270 -425 -220 {
 lab=VFE1}
 N -425 -360 -425 -330 {
@@ -70,18 +70,18 @@ C {devices/lab_pin.sym} -560 -280 0 0 {name=p1 sig_type=std_logic lab=VCC}
 C {devices/iopin.sym} -330 -380 2 0 {name=p4 lab=VCC}
 C {devices/iopin.sym} -330 -340 2 0 {name=p5 lab=VSS}
 C {devices/lab_pin.sym} -420 -220 0 1 {name=p3 sig_type=std_logic lab=VFE1}
-C {devices/lab_pin.sym} -400 30 0 1 {name=p6 sig_type=std_logic lab=VFE1}
+C {devices/lab_pin.sym} -400 30 0 1 {name=p6 sig_type=std_logic lab=VFE2}
 C {devices/iopin.sym} -830 -120 2 0 {name=p7 lab=VINS}
 C {devices/iopin.sym} -830 -40 2 0 {name=p8 lab=VINR}
 C {devices/capa.sym} -405 -50 2 0 {name=C2
 m=1
-value=100f
+value=1f
 footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} -405 -110 1 0 {name=p11 sig_type=std_logic lab=VSS}
 C {devices/capa.sym} -425 -300 2 0 {name=C1
 m=1
-value=100f
+value=1f
 footprint=1206
 device="ceramic capacitor"}
 C {devices/lab_pin.sym} -425 -360 1 0 {name=p12 sig_type=std_logic lab=VSS}

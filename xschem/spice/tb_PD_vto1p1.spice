@@ -103,10 +103,10 @@ x3 vinn predly VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__inv_1
 x4 dly8 net1 VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__inv_1
 x5 VIN vinn VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__inv_2
 x6 predly V_gatein VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__inv_8
-x9 VDDd VSSd V_gatein dly7 large_delay_vto1p1
 x1 dly7 dly8 VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__inv_8
 x8 net2 dly8 VFE VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__and2_1
 x7 net1 predly VRE VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__and2_1
+x10 VDDd VSSd V_gatein dly7 large_delay_vto1p1
 .ends
 
 

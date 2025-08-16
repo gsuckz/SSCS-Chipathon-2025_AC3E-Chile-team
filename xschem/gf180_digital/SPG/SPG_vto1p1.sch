@@ -57,13 +57,13 @@ C {devices/lab_pin.sym} 540 -120 0 0 {name=p7 sig_type=std_logic lab=VSSd}
 C {devices/lab_pin.sym} 520 -200 0 0 {name=p8 sig_type=std_logic lab=VDDd}
 C {devices/lab_pin.sym} 360 -160 1 1 {name=l1 sig_type=std_logic lab=V_gatein}
 C {devices/lab_pin.sym} 660 -160 3 0 {name=p6 sig_type=std_logic lab=dly7}
-C {/foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/gf180mcu_fd_sc_mcu9t5v0_symbols/inv_1.sym} 470 -520 0 0 {name=x2 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
-C {/foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/gf180mcu_fd_sc_mcu9t5v0_symbols/inv_1.sym} 350 -420 0 0 {name=x3 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
-C {/foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/gf180mcu_fd_sc_mcu9t5v0_symbols/inv_1.sym} 590 -420 0 0 {name=x4 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
-C {/foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/gf180mcu_fd_sc_mcu9t5v0_symbols/inv_2.sym} 250 -420 0 0 {name=x5 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
-C {/foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/gf180mcu_fd_sc_mcu9t5v0_symbols/inv_8.sym} 470 -420 0 0 {name=x6 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
-C {gf180_digital/large_delay/large_delay_vto1p1.sym} 480 -160 0 0 {name=x9}
-C {/foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/gf180mcu_fd_sc_mcu9t5v0_symbols/inv_8.sym} 510 -280 0 0 {name=x1 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
+C {gf180mcu_fd_sc_mcu9t5v0_symbols/inv_1.sym} 470 -520 0 0 {name=x2 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
+C {gf180mcu_fd_sc_mcu9t5v0_symbols/inv_1.sym} 350 -420 0 0 {name=x3 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
+C {gf180mcu_fd_sc_mcu9t5v0_symbols/inv_1.sym} 590 -420 0 0 {name=x4 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
+C {gf180mcu_fd_sc_mcu9t5v0_symbols/inv_2.sym} 250 -420 0 0 {name=x5 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
+C {gf180mcu_fd_sc_mcu9t5v0_symbols/inv_8.sym} 470 -420 0 0 {name=x6 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
+C {gf180mcu_fd_sc_mcu9t5v0_symbols/inv_8.sym} 510 -280 0 0 {name=x1 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
 C {devices/lab_pin.sym} 290 -500 0 0 {name=p9 sig_type=std_logic lab=vinn}
 C {gf180mcu_fd_sc_mcu9t5v0_symbols/and2_1.sym} 710 -500 0 0 {name=x8 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
 C {gf180mcu_fd_sc_mcu9t5v0_symbols/and2_1.sym} 710 -400 0 0 {name=x7 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
+C {gf180_digital/large_delay/large_delay_vto1p1.sym} 480 -160 0 0 {name=x10}

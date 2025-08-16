@@ -221,5 +221,5 @@ C {devices/gnd.sym} -260 -480 0 0 {name=l7 lab=GND}
 C {lab_pin.sym} -339 -530 0 0 {name=p16 sig_type=std_logic lab=Vg_M1}
 C {lab_pin.sym} -541 -540 2 0 {name=p21 sig_type=std_logic lab=s2}
 C {lab_pin.sym} -171 -530 2 0 {name=p22 sig_type=std_logic lab=s1}
-C {GD_schem.sym} -640 -570 0 0 {name=X1}
-C {GD_schem.sym} -260 -560 0 0 {name=X2}
+C {pwr_stage/GD_schem.sym} -640 -570 0 0 {name=X1}
+C {pwr_stage/GD_schem.sym} -260 -560 0 0 {name=X2}
