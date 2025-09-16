@@ -1,0 +1,50 @@
+v {xschem version=3.4.7 file_version=1.2}
+K {type=subcircuit
+format="@name @pinlist @symname"
+template="name=x1"
+}
+T {@symname} -85.5 -6 0 0 0.3 0.3 {}
+T {@name} 135 -152 0 0 0.2 0.2 {}
+P 4 5 130 -140 -130 -140 -130 140 130 140 130 -140 {}
+B 5 147.5 -132.5 152.5 -127.5 {name=VDD dir=inout}
+L 7 130 -130 150 -130 {}
+T {VDD} 125 -134 0 1 0.2 0.2 {}
+B 5 147.5 -112.5 152.5 -107.5 {name=OL_MUX_PAD dir=inout}
+L 7 130 -110 150 -110 {}
+T {OL_MUX_PAD} 125 -114 0 1 0.2 0.2 {}
+B 5 147.5 -92.5 152.5 -87.5 {name=VCO_OUT_S_PAD dir=inout}
+L 7 130 -90 150 -90 {}
+T {VCO_OUT_S_PAD} 125 -94 0 1 0.2 0.2 {}
+B 5 147.5 -72.5 152.5 -67.5 {name=VSS dir=inout}
+L 7 130 -70 150 -70 {}
+T {VSS} 125 -74 0 1 0.2 0.2 {}
+B 5 147.5 -52.5 152.5 -47.5 {name=VCO_OUT_R_PAD dir=inout}
+L 7 130 -50 150 -50 {}
+T {VCO_OUT_R_PAD} 125 -54 0 1 0.2 0.2 {}
+B 5 147.5 -32.5 152.5 -27.5 {name=PWM_EXT_1_PAD dir=inout}
+L 7 130 -30 150 -30 {}
+T {PWM_EXT_1_PAD} 125 -34 0 1 0.2 0.2 {}
+B 5 147.5 -12.5 152.5 -7.5 {name=DVDD dir=inout}
+L 7 130 -10 150 -10 {}
+T {DVDD} 125 -14 0 1 0.2 0.2 {}
+B 5 147.5 7.5 152.5 12.5 {name=VCONTs_PAD dir=inout}
+L 7 130 10 150 10 {}
+T {VCONTs_PAD} 125 6 0 1 0.2 0.2 {}
+B 5 147.5 27.5 152.5 32.5 {name=PWM_EXT_2_PAD dir=inout}
+L 7 130 30 150 30 {}
+T {PWM_EXT_2_PAD} 125 26 0 1 0.2 0.2 {}
+B 5 147.5 47.5 152.5 52.5 {name=VCONTr_PAD dir=inout}
+L 7 130 50 150 50 {}
+T {VCONTr_PAD} 125 46 0 1 0.2 0.2 {}
+B 5 147.5 67.5 152.5 72.5 {name=DVSS dir=inout}
+L 7 130 70 150 70 {}
+T {DVSS} 125 66 0 1 0.2 0.2 {}
+B 5 147.5 87.5 152.5 92.5 {name=GD_N_PAD dir=inout}
+L 7 130 90 150 90 {}
+T {GD_N_PAD} 125 86 0 1 0.2 0.2 {}
+B 5 147.5 107.5 152.5 112.5 {name=GD_P_PAD dir=inout}
+L 7 130 110 150 110 {}
+T {GD_P_PAD} 125 106 0 1 0.2 0.2 {}
+B 5 147.5 127.5 152.5 132.5 {name=V_OUT_PAD dir=inout}
+L 7 130 130 150 130 {}
+T {V_OUT_PAD} 125 126 0 1 0.2 0.2 {}

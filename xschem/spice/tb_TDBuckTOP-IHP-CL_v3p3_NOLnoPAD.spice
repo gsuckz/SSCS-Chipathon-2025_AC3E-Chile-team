@@ -1,5 +1,5 @@
-** sch_path: /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/top/tb_TDBuckTOP-IHP-CL_v3p3.sch
-**.subckt tb_TDBuckTOP-IHP-CL_v3p3
+** sch_path: /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/top/tb_TDBuckTOP-IHP-CL_v3p3_NOLnoPAD.sch
+**.subckt tb_TDBuckTOP-IHP-CL_v3p3_NOLnoPAD
 VH VH GND {VH}
 VVDIG VDIG GND {VDIG}
 RDIV1 ldo_out VCONTs 50e6 m=1
@@ -13,26 +13,15 @@ V_Io net2 ldo_out 0
 V_IL Vc net3 0
 .save i(v_il)
 R2 ldo_out VSS {RL} m=1
-XM3 Vc D1_N VSS VSS nfet_05v0 L={l_M2} W={w_M2} nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m={mult_M2}
-XM4 Vc D1 VH VH pfet_05v0 L={l_M1} W={w_M1} nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m={mult_M1}
-x1 VDIG VSS V_1s_buff DOUT V_1r_buff PD_vto1p1
-x8 VCONTs VSS VDD V_1s V_2s Esm22_CMOSVCOlowG_v5p1_GF180-5V
-x2 VCONTr VSS VDD V_1r V_2r Esm22_CMOSVCOlowG_v5p1_GF180-5V
-C2 V_2r VSS 1f m=1
-C3 V_2s VSS 1f m=1
-X3 VDD_GD GND DOUT_buff D1 GD_schem
-X5 VDD_GD GND DOUT_buffn D1_N GD_schem
-x4 DOUT net4 VDIG VDIG VSS VSS gf180mcu_fd_sc_mcu9t5v0__inv_1
-x6 net4 DOUT_buff VDIG VDIG VSS VSS gf180mcu_fd_sc_mcu9t5v0__inv_8
-x7 DOUT net5 VDIG VDIG VSS VSS gf180mcu_fd_sc_mcu9t5v0__inv_1
-x9 net5 DOUT_buffn VDIG VDIG VSS VSS gf180mcu_fd_sc_mcu9t5v0__inv_8
 VDD_GD1 VCONTr GND {VCONTR}
-x10 V_1s net6 VDIG VDIG VSS VSS gf180mcu_fd_sc_mcu9t5v0__inv_1
-x11 net6 V_1s_buff VDIG VDIG VSS VSS gf180mcu_fd_sc_mcu9t5v0__inv_8
-x12 V_1r net7 VDIG VDIG VSS VSS gf180mcu_fd_sc_mcu9t5v0__inv_1
-x13 net7 V_1r_buff VDIG VDIG VSS VSS gf180mcu_fd_sc_mcu9t5v0__inv_8
+VVDIG1 MUX GND {VDIG}
+RDIV4 GND net4 100e6 m=1
+RDIV5 GND net5 100e6 m=1
+RDIV6 GND net6 100e6 m=1
+RDIV7 GND net7 100e6 m=1
+RDIV8 GND net8 100e6 m=1
+RDIV9 GND net9 100e6 m=1
+x1 VDD MUX net9 VSS net7 net8 DVDD VCONTs net6 VCONTr DVSS net5 net4 Vc PWR_MOSbius-TOP_noPAD
 **** begin user architecture code
 
 .param VDIG = 5
@@ -64,19 +53,26 @@ x13 net7 V_1r_buff VDIG VDIG VSS VSS gf180mcu_fd_sc_mcu9t5v0__inv_8
 .save all
 vvdd vdd 0 dc 5
 vvss vss 0 0
+vdvdd dvdd 0 dc 5
+vdvss dvss 0 0
 *vvconts VCONTs 0 dc 0.61
 *.option temp = 200
+*.options savecurrents klu method=gear reltol=1e-2 abstol=1e-15 gmin=1e-15
 .ic v(VCONTs) = 2
-.ic v(V_1s) = 2
-.ic v(V_2s) = 4
-.ic v(V_1r) = 5
-.ic v(V_2r) = 0
+*.ic v(V_1s) = 2
+*.ic v(V_2s) = 4
+*.ic v(V_1r) = 5
+*.ic v(V_2r) = 0
+.ic v(x4.V_1s) = 2
+.ic v(x4.V_2s) = 4
+.ic v(x4.V_1r) = 5
+.ic v(x4.V_2r) = 0
 .ic v(ldo_out) = 2.5
 
 .control
 *tran 2n 1m
 *tran 4n 250u
-tran 1n 20u
+tran 10p 20u uic
 *wrdata /foss/designs/TO202406_CMOSVCO_Esm22/xschem/data/dataVSENS_2xCMOSVCOnDFF_v1p1.txt v(V_1s) tran1.v(V_1s) tran2.v(V_1s) tran3.v(V_1s) tran4.v(V_1s) tran5.v(V_1s) tran6.v(V_1s) tran7.v(V_1s) tran8.v(V_1s) tran9.v(V_1s) tran10.v(V_1s) tran11.v(V_1s) tran12.v(V_1s) tran13.v(V_1s) tran14.v(V_1s) tran15.v(V_1s) tran16.v(V_1s) tran17.v(V_1s) tran18.v(V_1s) tran19.v(V_1s)
 *wrdata /foss/designs/TO202406_CMOSVCO_Esm22/xschem/data/data_TDBuckTOP-CL_v5p3_RL60.txt tran.v(vh) tran.i(vh) tran.v(ldo_out) tran.i(vldo_out) tran.v(vh_gd) tran.i(vh_gd) tran.i(vvdig) tran.i(vvdd)
 plot v(ldo_out)
@@ -140,11 +136,59 @@ plot v(VCONTr) v(VCONTs)
 
 
 .include /foss/pdks/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu9t5v0/spice/gf180mcu_fd_sc_mcu9t5v0.spice
+*.include /foss/pdks/gf180mcuD/libs.tech/ngspice/design.ngspice
+.include gf180mcu_fd_io__asig_5p0_extracted.spice
+.include gf180mcu_fd_io.spice
+*.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+
+
 .include /foss/pdks/gf180mcuD/libs.tech/ngspice/design.ngspice
 .lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice diode_typical
+.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice res_typical
+.lib /foss/pdks/gf180mcuD/libs.tech/ngspice/sm141064.ngspice moscap_typical
 
 **** end user architecture code
 **.ends
+
+* expanding   symbol:  top/PWR_MOSbius-TOP_noPAD.sym # of pins=14
+** sym_path: /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/top/PWR_MOSbius-TOP_noPAD.sym
+** sch_path: /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/top/PWR_MOSbius-TOP_noPAD.sch
+.subckt PWR_MOSbius-TOP_noPAD VDD OL_MUX VCO_OUT_S VSS VCO_OUT_R PWM_EXT_1 DVDD VCONTs PWM_EXT_2 VCONTr DVSS GD_N GD_P V_OUT
+*.iopin VCO_OUT_S
+*.iopin VCO_OUT_R
+*.iopin VCONTs
+*.iopin VCONTr
+*.iopin V_OUT
+*.iopin OL_MUX
+*.iopin PWM_EXT_1
+*.iopin PWM_EXT_2
+*.iopin GD_N
+*.iopin GD_P
+*.iopin VDD
+*.iopin VSS
+*.iopin DVDD
+*.iopin DVSS
+XM3 V_OUT GD_N VSS VSS nfet_05v0 L={l_M2} W={w_M2} nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m={mult_M2}
+XM4 V_OUT GD_P VDD VDD pfet_05v0 L={l_M1} W={w_M1} nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m={mult_M1}
+x1 DVDD DVSS V_1s_buff DOUT V_1r_buff PD_vto1p1
+x8 VCONTs VSS VDD V_1s V_2s Esm22_CMOSVCOlowG_v5p1_GF180-5V
+x2 VCONTr VSS VDD V_1r V_2r Esm22_CMOSVCOlowG_v5p1_GF180-5V
+C2 V_2r VSS 1f m=1
+C3 V_2s VSS 1f m=1
+X3 VDD VSS GD_IN_1 GD_P GD_schem
+X5 VDD VSS GD_IN_2 GD_N GD_schem
+x10 V_1s net1 DVDD DVDD DVSS DVSS gf180mcu_fd_sc_mcu9t5v0__inv_1
+x11 net1 V_1s_buff DVDD DVDD DVSS DVSS gf180mcu_fd_sc_mcu9t5v0__inv_8
+x14 DVDD DVSS net4 DOUT net3 NOL_vto1p1
+x4 net3 OL_MUX GD_IN_2 PWM_EXT_2 VDD VSS mux2
+x6 net4 OL_MUX GD_IN_1 PWM_EXT_1 VDD VSS mux2
+x7 V_1r net2 DVDD DVDD DVSS DVSS gf180mcu_fd_sc_mcu9t5v0__inv_1
+x9 net2 V_1r_buff DVDD DVDD DVSS DVSS gf180mcu_fd_sc_mcu9t5v0__inv_8
+.ends
+
 
 * expanding   symbol:  gf180_digital/PD/PD_vto1p1.sym # of pins=5
 ** sym_path: /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/gf180_digital/PD/PD_vto1p1.sym
@@ -197,6 +241,45 @@ XM13 net1 A VN VN nfet_05v0 L={l_gd_n} W={w_gd_n} nf=1 ad='int((nf+1)/2) * W/nf 
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m={mult_gd_n}/4
 XM14 net1 A VP VP pfet_05v0 L={l_gd_p} W={w_gd_p} nf=1 ad='int((nf+1)/2) * W/nf * 0.18u' as='int((nf+2)/2) * W/nf * 0.18u' pd='2*int((nf+1)/2) * (W/nf + 0.18u)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.18u)' nrd='0.18u / W' nrs='0.18u / W' sa=0 sb=0 sd=0 m={mult_gd_p}/4
+.ends
+
+
+* expanding   symbol:  gf180_digital/NOL/NOL_vto1p1.sym # of pins=5
+** sym_path: /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/gf180_digital/NOL/NOL_vto1p1.sym
+** sch_path: /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/gf180_digital/NOL/NOL_vto1p1.sch
+.subckt NOL_vto1p1 VDDd VSSd VCP CLK VCN
+*.iopin CLK
+*.iopin VCP
+*.iopin VCN
+*.iopin VDDd
+*.iopin VSSd
+x11 B1 net1 VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__inv_1
+x12 net1 net3 VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__inv_2
+x13 net3 VCP VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__inv_4
+x14 A1 B1 C1 VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__nor2_1
+x15 VDDd VSSd C1 B2 large_delay_vto1p1
+x4 VDDd VSSd C2 B1 large_delay_vto1p1
+x1 B2 CLK C2 VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__nor2_1
+x3 CLK A1 VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__inv_1
+x5 B2 net2 VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__inv_1
+x6 net2 VCN VDDd VDDd VSSd VSSd gf180mcu_fd_sc_mcu9t5v0__inv_4
+.ends
+
+
+* expanding   symbol:  gf180_digital/mux2.sym # of pins=6
+** sym_path: /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/gf180_digital/mux2.sym
+** sch_path: /foss/designs/SSCS-Chipathon-2025_AC3E-Chile-team/xschem/gf180_digital/mux2.sch
+.subckt mux2 A S Y B VCC VSS
+*.iopin VCC
+*.iopin VSS
+*.iopin A
+*.iopin B
+*.iopin Y
+*.iopin S
+x1 A S net1 VCC VCC VSS VSS gf180mcu_fd_sc_mcu9t5v0__nand2_1
+x3 S net3 VCC VCC VSS VSS gf180mcu_fd_sc_mcu9t5v0__inv_1
+x2 net3 B net2 VCC VCC VSS VSS gf180mcu_fd_sc_mcu9t5v0__nand2_1
+x4 net1 net2 Y VCC VCC VSS VSS gf180mcu_fd_sc_mcu9t5v0__nand2_1
 .ends
 
 

@@ -244,7 +244,7 @@ value="
 .lib $::180MCU_MODELS/sm141064.ngspice mimcap_typical
 .lib $::180MCU_MODELS/sm141064.ngspice moscap_typical
 "}
-C {devices/code_shown.sym} 90 -950 0 0 {name=DUT only_toplevel=true
+C {devices/code_shown.sym} 100 -950 0 0 {name=DUT only_toplevel=true
 format="tcleval( @value )"
 value="
 *.include "/foss/designs/Chipathon2025_pads/xschem/gf180mcu_fd_io.spice"
