@@ -4,7 +4,7 @@ K {}
 V {}
 S {}
 E {}
-T {ANALOG PINS                     DIGITAL INPUTS                DIGITAL OUTPUTS           POWER} -3245 -1370 0 0 0.3 0.3 {}
+T {ANALOG PINS                     DIGITAL INPUTS                DIGITAL OUTPUTS           POWER} -2105 -1300 0 0 0.3 0.3 {}
 N -2130 -645 -2130 -615 {
 lab=VDD}
 N -2130 -495 -2130 -465 {
@@ -38,8 +38,6 @@ lab=VDD}
 N -1740 -155 -1700 -155 {
 lab=V_OUT}
 N -1700 -150 -1700 -140 {
-lab=V_OUT}
-N -1700 -150 -1680 -150 {
 lab=V_OUT}
 N -1700 -155 -1700 -150 {
 lab=V_OUT}
@@ -78,7 +76,6 @@ N -1720 -670 -1700 -670 {
 lab=#net2}
 N -1700 -670 -1680 -670 {lab=#net2}
 N -1600 -700 -1600 -670 {lab=V_1r_buff}
-N -1680 -150 -1480 -150 {lab=V_OUT}
 N -1790 -110 -1790 -90 {lab=GD_N}
 N -1780 -265 -1780 -230 {lab=GD_P}
 N -1790 -110 -1770 -110 {lab=GD_N}
@@ -91,6 +88,11 @@ N -2190 -245 -2135 -245 {lab=#net4}
 N -2190 -245 -2190 -215 {lab=#net4}
 N -1965 -90 -1965 -40 {lab=GD_IN_2}
 N -1965 -305 -1965 -265 {lab=GD_IN_1}
+N -2040 -575 -1840 -575 {lab=V_1r}
+N -1840 -575 -1800 -575 {lab=V_1r}
+N -1800 -670 -1800 -575 {lab=V_1r}
+N -1800 -855 -1800 -740 {lab=V_2s}
+N -2040 -855 -1800 -855 {lab=V_2s}
 C {devices/lab_pin.sym} -2130 -645 1 0 {name=p4 sig_type=std_logic lab=VDD}
 C {devices/lab_pin.sym} -2130 -465 3 0 {name=p5 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} -2220 -555 1 0 {name=p6 sig_type=std_logic lab=VCONTr}
@@ -160,24 +162,22 @@ C {devices/lab_wire.sym} -1880 -315 0 0 {name=l20 sig_type=std_logic lab=VDD}
 C {devices/lab_wire.sym} -1880 -140 0 0 {name=l21 sig_type=std_logic lab=VDD}
 C {gf180mcu_fd_sc_mcu9t5v0_symbols/inv_1.sym} -1760 -740 0 0 {name=x10 VGND=DVSS VNB=DVDD VPB=DVSS VPWR=DVDD prefix=gf180mcu_fd_sc_mcu9t5v0__ }
 C {gf180mcu_fd_sc_mcu9t5v0_symbols/inv_8.sym} -1640 -740 0 0 {name=x11 VGND=DVSS VNB=DVDD VPB=DVSS VPWR=DVDD  prefix=gf180mcu_fd_sc_mcu9t5v0__ }
-C {devices/lab_pin.sym} -1800 -740 1 0 {name=p19 sig_type=std_logic lab=V_1s}
-C {devices/lab_pin.sym} -1800 -670 3 0 {name=p20 sig_type=std_logic lab=V_1r}
 C {gf180_digital/NOL/NOL_vto1p1.sym} -2310 -195 0 0 {name=x14}
 C {devices/lab_pin.sym} -2310 -135 3 0 {name=p15 sig_type=std_logic lab=DVSS}
 C {devices/lab_pin.sym} -2310 -255 1 0 {name=p16 sig_type=std_logic lab=DVDD}
 C {devices/lab_pin.sym} -2430 -195 1 0 {name=p17 sig_type=std_logic lab=DOUT}
-C {devices/iopin.sym} -3135 -1315 2 0 {name=p53 lab=VCO_OUT_S}
-C {devices/iopin.sym} -3135 -1285 2 0 {name=p55 lab=VCO_OUT_R}
-C {devices/iopin.sym} -3135 -1255 2 0 {name=p56 lab=VCONTs}
-C {devices/iopin.sym} -3135 -1225 2 0 {name=p57 lab=VCONTr}
-C {devices/iopin.sym} -3135 -1120 2 0 {name=p59 lab=V_OUT}
-C {devices/iopin.sym} -2920 -1315 2 0 {name=p60 lab=OL_MUX}
-C {devices/iopin.sym} -2920 -1270 2 0 {name=p61 lab=PWM_EXT_1}
-C {devices/iopin.sym} -2920 -1230 2 0 {name=p62 lab=PWM_EXT_2}
+C {devices/iopin.sym} -1995 -1245 2 0 {name=p53 lab=VCO_OUT_S}
+C {devices/iopin.sym} -1995 -1215 2 0 {name=p55 lab=VCO_OUT_R}
+C {devices/iopin.sym} -1995 -1185 2 0 {name=p56 lab=VCONTs}
+C {devices/iopin.sym} -1995 -1155 2 0 {name=p57 lab=VCONTr}
+C {devices/iopin.sym} -1995 -1050 2 0 {name=p59 lab=V_OUT}
+C {devices/iopin.sym} -1780 -1245 2 0 {name=p60 lab=OL_MUX}
+C {devices/iopin.sym} -1780 -1200 2 0 {name=p61 lab=PWM_EXT_1}
+C {devices/iopin.sym} -1780 -1160 2 0 {name=p62 lab=PWM_EXT_2}
 C {devices/lab_pin.sym} -1780 -265 1 0 {name=l1 sig_type=std_logic lab=GD_P
 }
-C {devices/iopin.sym} -3135 -1175 2 0 {name=p67 lab=GD_N}
-C {devices/iopin.sym} -3135 -1145 2 0 {name=p69 lab=GD_P}
+C {devices/iopin.sym} -1995 -1105 2 0 {name=p67 lab=GD_N}
+C {devices/iopin.sym} -1995 -1075 2 0 {name=p69 lab=GD_P}
 C {gf180_digital/mux2.sym} -1995 -110 0 0 {name=x4}
 C {gf180_digital/mux2.sym} -1995 -245 2 1 {name=x6}
 C {devices/lab_pin.sym} -2055 -175 0 1 {name=p99 sig_type=std_logic lab=OL_MUX}
@@ -186,10 +186,10 @@ C {devices/lab_pin.sym} -2135 -80 3 0 {name=p101 sig_type=std_logic lab=PWM_EXT_
 C {devices/lab_pin.sym} -2095 -325 1 0 {name=p102 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} -2095 -30 3 0 {name=p103 sig_type=std_logic lab=VSS}
 C {devices/lab_pin.sym} -2085 -175 0 0 {name=p104 sig_type=std_logic lab=VDD}
-C {devices/iopin.sym} -2630 -1320 2 1 {name=p58 lab=VDD}
-C {devices/iopin.sym} -2625 -1290 2 1 {name=p105 lab=VSS}
-C {devices/iopin.sym} -2625 -1255 2 1 {name=p106 lab=DVDD}
-C {devices/iopin.sym} -2625 -1220 2 1 {name=p107 lab=DVSS}
+C {devices/iopin.sym} -1490 -1250 2 1 {name=p58 lab=VDD}
+C {devices/iopin.sym} -1485 -1220 2 1 {name=p105 lab=VSS}
+C {devices/iopin.sym} -1485 -1185 2 1 {name=p106 lab=DVDD}
+C {devices/iopin.sym} -1485 -1150 2 1 {name=p107 lab=DVSS}
 C {gf180mcu_fd_sc_mcu9t5v0_symbols/inv_1.sym} -1760 -670 0 0 {name=x7 VGND=DVSS VNB=DVDD VPB=DVSS VPWR=DVDD prefix=gf180mcu_fd_sc_mcu9t5v0__ }
 C {gf180mcu_fd_sc_mcu9t5v0_symbols/inv_8.sym} -1640 -670 0 0 {name=x9 VGND=DVSS VNB=DVDD VPB=DVSS VPWR=DVDD  prefix=gf180mcu_fd_sc_mcu9t5v0__ }
 C {devices/lab_wire.sym} -1965 -305 0 0 {name=l6 sig_type=std_logic lab=GD_IN_1}

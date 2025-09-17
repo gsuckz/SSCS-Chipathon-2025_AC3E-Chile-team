@@ -278,4 +278,4 @@ footprint=1206
 device=resistor
 m=1}
 C {devices/gnd.sym} 2920 -1130 3 0 {name=l16 lab=GND}
-C {top/PWR_MOSbius-TOP_noPAD.sym} 2710 -1040 0 0 {name=x1}
+C {top/PWR_MOSbius-TOP_noPAD.sym} 2710 -1040 0 0 {name=x4}

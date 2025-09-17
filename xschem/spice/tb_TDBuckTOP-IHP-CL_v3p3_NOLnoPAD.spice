@@ -21,7 +21,7 @@ RDIV6 GND net6 100e6 m=1
 RDIV7 GND net7 100e6 m=1
 RDIV8 GND net8 100e6 m=1
 RDIV9 GND net9 100e6 m=1
-x1 VDD MUX net9 VSS net7 net8 DVDD VCONTs net6 VCONTr DVSS net5 net4 Vc PWR_MOSbius-TOP_noPAD
+x4 VDD MUX net9 VSS net7 net8 DVDD VCONTs net6 VCONTr DVSS net5 net4 Vc PWR_MOSbius-TOP_noPAD
 **** begin user architecture code
 
 .param VDIG = 5
@@ -180,7 +180,7 @@ C2 V_2r VSS 1f m=1
 C3 V_2s VSS 1f m=1
 X3 VDD VSS GD_IN_1 GD_P GD_schem
 X5 VDD VSS GD_IN_2 GD_N GD_schem
-x10 V_1s net1 DVDD DVDD DVSS DVSS gf180mcu_fd_sc_mcu9t5v0__inv_1
+x10 V_2s net1 DVDD DVDD DVSS DVSS gf180mcu_fd_sc_mcu9t5v0__inv_1
 x11 net1 V_1s_buff DVDD DVDD DVSS DVSS gf180mcu_fd_sc_mcu9t5v0__inv_8
 x14 DVDD DVSS net4 DOUT net3 NOL_vto1p1
 x4 net3 OL_MUX GD_IN_2 PWM_EXT_2 VDD VSS mux2
